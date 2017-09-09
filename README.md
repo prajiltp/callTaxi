@@ -7,3 +7,6 @@ This README documents necessary steps to get callTaxi up and running.
 
 === System dependencies
 * PostgreSQL 9.4.9 or above
+
+=== Databse.yml
+  Edit username and password for database
