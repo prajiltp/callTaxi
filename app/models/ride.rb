@@ -11,28 +11,28 @@ class Ride < ApplicationRecord
   end
 
   def assign_cab
-  	available_cabs = cab_available_for_the_request
-  	@errors = []
-  	if available_cabs.blank?
-  	  @errors  << "There are no cabs available for you request please try late."
-  	else
-  	  cab = nearest_cab(available_cabs)
+    available_cabs = cab_available_for_the_request
+    @errors = []
+    if available_cabs.blank?
+      @errors  << 'There are no cabs available for you request please try late.'
+    else
+      cab = nearest_cab(available_cabs)
       if cab
-      	self.cab = cab
-      	cab.change_availability
-      	@errors << self.errors.messages unless self.save
+        self.cab = cab
+        cab.change_availability
+        @errors << self.errors.messages unless self.save
       else
-      	@errors << "No cab available at a reachable distance"
+        @errors << 'No cab available at a reachable distance.'
       end
-  	end
-  	[self, @errors]
+    end
+    [self, @errors]
   end
 
   def cab_available_for_the_request
-  	cabs=Cab.available
-  	if pink == "1" || pink == true 
-  	  cabs = cabs.pink_cabs
-  	end
+    cabs = Cab.available
+    if pink == "1" || pink == true 
+      cabs = cabs.pink_cabs
+    end
     cabs
   end
 
@@ -63,7 +63,7 @@ class Ride < ApplicationRecord
   def finish
     @errors = []
     if self.finished?
-      @errors << "This ride is already finished"
+      @errors << 'This ride is already finished'
     else
       self.end_at = Time.now
       self.status = Ride.statuses['finished']

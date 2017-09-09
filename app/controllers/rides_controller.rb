@@ -1,12 +1,12 @@
 class RidesController < ApplicationController
-  before_action :set_ride, only: [:start, :finish]
+  before_action :set_ride, only: %I[start finish]
   def create
-  	@pickup_point = rides_params[:pickup_point]
+    @pickup_point = rides_params[:pickup_point]
     @drop_point = rides_params[:drop_point]
-  	set_start_location if @pickup_point
-  	set_drop_location if @drop_point
-  	ride = Ride.new(params.require(:ride).permit!)
-  	@ride, @errors = ride.assign_cab
+    set_start_location if @pickup_point
+    set_drop_location if @drop_point
+    ride = Ride.new(params.require(:ride).permit!)
+    @ride, @errors = ride.assign_cab
   end
 
   def start
@@ -20,7 +20,7 @@ class RidesController < ApplicationController
   private
 
   def rides_params
-  	params[:ride]
+    params[:ride]
   end
 
   def set_start_location
@@ -42,11 +42,11 @@ class RidesController < ApplicationController
   end
 
   def get_coordinate(point)
-  	Geocoder.coordinates(point)
+    Geocoder.coordinates(point)
   end
 
   def set_ride
-  	@ride = Ride.find_by_id(params[:id])
-  	@error = "No ride match your request" unless @ride
+    @ride = Ride.find_by_id(params[:id])
+    @error = 'No ride match your request' unless @ride
   end
 end
