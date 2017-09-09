@@ -1,0 +1,7 @@
+/log
+/tmp	
+/public/system
+/config/databse.yml
+/config/secrets.yml
+/tmp/*
+/log/*
