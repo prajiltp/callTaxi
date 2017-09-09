@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  starting_latt: 11.2587531
+  starting_long: 75.78041
+  end_latt: 12.9715987
+  end_long: 77.5945627
+  started_at: 2017-09-09 05:17:41 +0530
+  end_at: 2017-09-09 11:17:08 +0530 
+  status: 0
+
+two:
+  starting_latt: 12.9715987
+  starting_long: 77.5945627
+  end_latt: 11.2587531
+  end_long: 75.78041
+  started_at: 2017-09-09 05:17:41 +0530
+  end_at: 2017-09-09 11:17:08 +0530 
+  status: 0

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: KL 15 6565
+  pink: false
+  curr_lat: 11.2500859
+  curr_long: 75.78656529999999
+  contact_number: 1234567890
+  available: true
+
+two:
+  number: KL 15 6565
+  pink: true
+  curr_lat: 12.9715987
+  curr_long: 77.5945627
+  contact_number: 9999888777
+  available: true
