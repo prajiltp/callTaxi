@@ -1,0 +1,22 @@
+// Place all the styles related to the cabs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.card-block {
+	max-width: 100%;
+}
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
+.pink {
+	color: pink;
+}
+@media screen and (min-width: 768px) {
+	.pink-check-box {
+       padding-top: 30px;
+	}
+}

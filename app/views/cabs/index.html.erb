@@ -1,0 +1,64 @@
+<h1>Fuber</h1>
+<div class="container pl-50 pr-50">
+    <div class="row">
+      <%if @cabs.blank?%>
+        NO cabs available... We are getting ready for service... Thanks!
+      <%else%>
+        <% @cabs.each do |cab| %>
+          <div class="col-md-6 col-lg-3">
+            <div class="card text-center w-90 mb-3">
+              <div class="card-header">
+                <%= cab.number%>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title"><%= cab.contact_number%></h4>
+                <%if cab.available%>
+                  <i class="fa fa-dot-circle-o green"></i>
+                  <%=current_location(cab)%>
+                <%else%>
+                  <i class="fa  fa-dot-circle-o red"></i>
+                <%end%>
+                <%if cab.pink%>
+                  <i class="fa fa-car pink"></i>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        <%end%>
+	  <%end%>
+    </div>
+
+
+
+	<%= form_for(@ride) do |f| %>
+	  <div class="row">
+	     <% if @ride.errors.any? %>
+	       <div id="error_explanation">
+	          <h2><%= pluralize(@ride.errors.count, "error") %> prohibited this ride from being saved:</h2>
+	          <ul>
+	            <% @ride.errors.full_messages.each do |message| %>
+	               <li><%= message %></li>
+	            <% end %>
+	          </ul>
+	       </div>
+	     <% end %>
+	     <div class="col-md-6 col-lg-3">
+	       <%=f.label :mobile%>
+	       <%=f.text_field :contact_number%>
+	     </div>
+	     <div class="col-md-6 col-lg-3">
+	       <%=f.label :pickup_location%>
+	       <%=f.text_field :pickup_point%>
+	     </div>
+	     <div class="col-md-6 col-lg-3">
+	       <%=f.label :drop_location%>
+	       <%=f.text_field :drop_point%>
+	     </div>
+	     <div class="col-md-6 col-lg-3 pink-check-box">
+	       <%=f.label :pink_cab%>
+	       <%=f.check_box :pink%>
+	       <%=f.submit%>
+	     </div>
+	   </div>
+	<%end%>
+</div>
